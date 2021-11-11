@@ -18,7 +18,8 @@ var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB() {
-  // Delete everything await Costume.deleteMany();
+  // Delete everything
+   await tshirt.deleteMany();
   let instance1 = new tshirt({ color: "Black", brand: "Tommy Hilfiger", price: 20 });
   instance1.save(function (err, doc) {
     if (err) return console.error(err);

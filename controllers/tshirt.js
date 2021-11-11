@@ -1,8 +1,15 @@
 var tshirt = require('../models/tshirt'); 
  
-// List of all tshirt
-exports.tshirt_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: tshirt list'); 
+// List of all tshirts 
+exports.tshirt_list = async function(req, res) { 
+    try{ 
+        thetshirt = await tshirt.find(); 
+        res.send(thetshirt); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
  
 // for a specific tshirt. 
