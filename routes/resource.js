@@ -22,14 +22,12 @@ router.post('/tshirt', tshirt_controller.tshirt_create_post);
 router.delete('/tshirt/:id', tshirt_controller.tshirt_delete); 
  
 // PUT request to update tshirt. 
-router.put('/tshirt/:id', 
-tshirt_controller.tshirt_update_put); 
+router.put('/tshirt/:id', tshirt_controller.tshirt_update_put); 
  
 // GET request for one tshirt. 
 router.get('/tshirt/:id', tshirt_controller.tshirt_detail); 
  
 // GET request for list of all tshirt items. 
 router.get('/tshirt', tshirt_controller.tshirt_list); 
-
  
 module.exports = router;

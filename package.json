@@ -22,5 +22,13 @@
   ],
   "author": "Hemanth",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hemanthkumarreddy/db91pidaparathy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hemanthkumarreddy/db91pidaparathy/issues"
+  },
+  "homepage": "https://github.com/Hemanthkumarreddy/db91pidaparathy#readme"
 }

@@ -1,10 +1,9 @@
 extends layout
 
-let items = results
-
 block content
   h1= title
   p Welcome to #{title}
+  let items = results
   - var results = [{color:"Black", brand: "Tommy Hilfiger", price: 20},{color:"Red", brand: "Calvin Kelvin", price: 18},{color:"White", brand: "Buffallo", price: 22}]
    div(class="container-fluid")
     div(class="row" )
