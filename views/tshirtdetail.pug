@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let tshirtid = toShow._id 
+  - let tshirtcolor = toShow.color 
+  - let tshirtbrand = toShow.brand
+  - let tshirtprice = toShow.price 
+  div 
+    div.row 
+      div(class='tshirtAttr mr-3') tshirt ID is: 
+      div #{tshirtid} 
+    div.row 
+      div(class='tshirtAttr mr-3') tshirt color is: 
+      div #{tshirtcolor} 
+    div.row 
+      div(class='tshirtAttr mr-3') tshirt brand is: 
+      div #{tshirtbrand} 
+    div.row 
+      div(class='tshirtAttr mr-3') tshirt price is: 
+      div #{tshirtprice} 

@@ -6,11 +6,11 @@ var api_controller = require('../controllers/api');
 var tshirt_controller = require('../controllers/tshirt'); 
 const tshirt_controlers= require('../controllers/tshirt');
 
-router.get('/', tshirt_controlers.tshirt_view_all_Page ); 
+router.get('/', tshirt_controlers.tshirt_view_all_Page );
  
 /// API ROUTE /// 
  
-// GET resources base. 
+// GET resources base.
 router.get('/', api_controller.api); 
  
 /// tshirt ROUTES /// 

@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let tshirtid = toShow._id 
+    - let tshirtcolor = toShow.color 
+    - let tshirtbrand = toShow.brand 
+    - let tshirtprice = toShow.price 
+    - let actionid = "/resource/tshirt/" + tshirtid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='tshirtAttr mr-3') tshirt ID is: 
+        div #{tshirtid} 
+      div.row 
+        div(class='tshirtAttr mr-3') tshirt color is: 
+        div #{tshirtcolor} 
+      div.row 
+        div(class='tshirtAttr mr-3') tshirt brand is: 
+        div #{tshirtbrand} 
+      div.row 
+        div(class='tshirtAttr mr-3') tshirt price is: 
+        div #{tshirtprice} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the tshirt collection 
+      window.location.href='/tshirt' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      // Dont need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/tshirt' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

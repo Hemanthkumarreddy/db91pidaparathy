@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let tshirtid = toShow._id 
+  - let tshirtcolor = toShow.color 
+  - let tshirtbrand = toShow.brand 
+  - let tshirtprice = toShow.price 
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{tshirtid} 
+  - let actionid = "/resource/tshirt/" + tshirtid 
+  form(id='tshirtForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.tshirtAttr(for='tshirtcolor') tshirt color 
+        input#tshirtcolor(type='text', name='tshirtcolor', value= tshirtcolor ) 
+    div.form-group 
+        label.tshirtAttr(for='tshirtbrand') tshirt brand 
+        input#tshirtbrand(type='text', name='tshirtbrand', value= tshirtbrand ) 
+    div.form-group 
+        label.tshirtAttr(for='tshirtprice') tshirt price
+        input#tshirtprice(type='number', name='tshirtprice', value= tshirtprice ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['tshirtForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });
