@@ -3,10 +3,15 @@ extends layout
 block content 
   h1= title 
  
-  - let tshirtid = toShow._id 
-  - let tshirtcolor = toShow.color 
-  - let tshirtbrand = toShow.brand 
-  - let tshirtprice = toShow.price 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let tshirtid = toShow._id 
+    - let tshirtcolor = toShow.color 
+    - let tshirtbrand = toShow.brand
+    - let tshirtprice = toShow.price 
+    - let actionid = "/resource/tshirt/" + tshirtid 
+    script let actionid = "#{actionid}" 
    
   div.row(class='mb-2') 
     div.mr-1 ID is 
