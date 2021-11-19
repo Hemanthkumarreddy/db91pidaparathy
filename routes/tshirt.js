@@ -4,9 +4,10 @@ var router = express.Router();
 const tshirt_controlers= require('../controllers/tshirt');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('tshirt', { title: 'Search Results tshirt' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('tshirt', { title: 'Search Results tshirt' });
+// });
+router.get('/',tshirt_controlers.tshirt_view_all_Page);
 
 /* Get a detail tshirt page*/
 router.get('/detail',tshirt_controlers.tshirt_view_one_Page);
