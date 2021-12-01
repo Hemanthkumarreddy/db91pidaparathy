@@ -13,12 +13,12 @@ router.get('/',tshirt_controlers.tshirt_view_all_Page);
 router.get('/detail',tshirt_controlers.tshirt_view_one_Page);
 
 /* GET create tshirt page */ 
-router.get('/create', tshirt_controlers.tshirt_create_Page);
+router.get('/create', secured,tshirt_controlers.tshirt_create_Page);
 
 /* GET update tshirt page */ 
-router.get('/update', tshirt_controlers.tshirt_update_Page); 
+router.get('/update', secured,tshirt_controlers.tshirt_update_Page); 
 
 /* GET delete tshirt page */ 
-router.get('/delete', tshirt_controlers.tshirt_delete_Page); 
+router.get('/delete', secured,tshirt_controlers.tshirt_delete_Page); 
 
 module.exports = router;
